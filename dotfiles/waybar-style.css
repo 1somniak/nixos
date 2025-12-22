@@ -1,0 +1,101 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    /* Par défaut : cacher la bar en la décalant vers le haut,
+       en laissant une petite bande visible pour détecter le survol. */
+    margin-top: calc(-100px + 6px);
+    transition: margin-top 200ms ease, opacity 200ms ease;
+}
+
+/* Au survol : afficher complètement la waybar */
+window#waybar:hover {
+    margin-top: 0;
+    opacity: 1;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* --- DESIGN DES BLOCS (MODULES) --- */
+#workspaces,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray {
+    background: #1e1e2e; /* Fond sombre */
+    opacity: 0.9;
+    padding: 0px 15px;
+    margin: 5px 5px; /* Espace entre les blocs */
+    color: #cdd6f4;
+    border: 2px solid #313244; /* Bordure subtile */
+    border-radius: 15px; /* Arrondi style "Pilule" */
+}
+
+/* --- WORKSPACES (BUREAUX) --- */
+#workspaces button {
+    padding: 0 5px;
+    color: #7f849c;
+    background: transparent;
+    border-radius: 15px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: #cdd6f4;
+}
+
+#workspaces button.active {
+    color: #cba6f7; /* Couleur Violette quand actif */
+    border-bottom: 2px solid #cba6f7;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+/* --- COULEURS SPÉCIFIQUES --- */
+#clock {
+    color: #fab387; /* Orange pêche */
+}
+
+#battery {
+    color: #a6e3a1; /* Vert */
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+#pulseaudio {
+    color: #89b4fa; /* Bleu */
+}
+
+#network {
+    color: #f9e2af; /* Jaune */
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* --- LE TITRE DE LA FENÊTRE AU MILIEU --- */
+#window {
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
