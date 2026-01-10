@@ -16,30 +16,17 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+  networking.firewall.checkReversePath = false;
 
-  # auto connect pour arpej
-  networking.networkmanager.ensureProfiles.profiles = {
-    numericable = {
-      connection = {
-        id = "Numericable-af2e";
-        type = "wifi";
-        interface-name = "wlp0s20f3"; 
-      };
-      wifi = {
-        ssid = "Numericable-af2e";
-        mode = "infrastructure";
-      };
-      wifi-security = {
-        key-mgmt = "wpa-psk";
-        psk = "y12k5kkvzzkn";
-      };
-      ipv4 = { method = "auto"; };
-      ipv6 = { method = "auto"; };
-    };
-  };
-  
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # applet graphique pour le wifi
+  programs.nm-applet.enable = true;
+
+  # dire à PAM (le gestionnaire d'authentification)de déverrouiller le trousseau quand on se connecte.
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.hyprland.enableGnomeKeyring = true;
 
   # Flakes sont toujours utiles
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -74,6 +61,8 @@
   };
   console.keyMap = "fr";
 
+  services.flatpak.enable = true;
+
   # Le Gestionnaire de Connexion (Login Screen)
   services.displayManager.sddm = {
       enable = true;
@@ -91,11 +80,15 @@
   hardware.graphics.enable = true;
   
   # Polices d'écriture (CRUCIAL pour avoir les icônes dans la barre)
-  fonts.packages = with pkgs; [
+  fonts.packages = with pkgs; [ # syntaxe pour unstable
     font-awesome
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
   ];
+  #fonts.packages = with pkgs; [ # syntaxe pour 24.11
+  #  font-awesome
+  #  (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+  #];
 
   # --- SON ---
   # Enable sound with pipewire.
@@ -125,7 +118,6 @@
         wl-clipboard # Pour que le copier-coller fonctionne
         pavucontrol # pour le son
         brave
-        protonvpn-gui
         papirus-icon-theme
         hyprpaper  # wallpaper
         vanilla-dmz  # Le pack de curseurs
@@ -133,6 +125,16 @@
         swayosd      # pour afficher le volume en flottant
 
         vscode
+        xsel
+        libreoffice
+
+        grim          # Le moteur de capture
+        slurp         # Le sélecteur de zone
+        wl-clipboard  # Gestion du presse-papier
+        hyprshot      # Le script de confort pour Hyprland
+
+        gcc
+        rocmPackages.llvm.clang-unwrapped # clang format
     ];
   };
 
@@ -153,10 +155,11 @@
   nixpkgs.config.allowUnfree = true;
 
   # --- PAQUETS SYSTÈME ---
-  environment.systemPackages = with pkgs; [
-    vim 
-    wget
-    git
+  environment.systemPackages = [
+    pkgs.vim 
+    pkgs.wget
+    pkgs.git
+    #pkgsStable.protonvpn-gui
   ];
 
   # Ne change pas cette version
@@ -178,10 +181,8 @@
       email = "louis.rodet@epita.fr";
     };
   
-    # (Optionnel) Autorise les logiciels non-libres
     # nixpkgs.config.allowUnfree = true; 
     xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hyprland.conf; # Hyprland
-    
     xdg.configFile."waybar/config".source = ./dotfiles/waybar-config; # Waybar (Fichier config)
     xdg.configFile."waybar/style.css".source = ./dotfiles/waybar-style.css; # Waybar (Fichier css)
     
