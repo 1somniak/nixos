@@ -10,6 +10,7 @@
   border-color: #2d3561;
   selected: #1f2647;
   spacing: 12px;
+  border-radius: 5px;
 }
 
 window {
@@ -18,7 +19,7 @@ window {
   border: 2px;
   border-color: @accent;
   padding: 20px;
-  width: 35%;
+  width: 350px;
 }
 
 mainbox {
