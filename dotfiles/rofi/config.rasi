@@ -1,0 +1,17 @@
+configuration {
+  modi: "drun,run";
+  show-icons: true;
+  icon-theme: "Papirus";
+  drun-display-format: "{name}";
+  display-drun: "Apps";
+  display-run: "Run";
+  drun-match-fields: "name,generic,exec,categories";
+  sorting-method: "levenshtein";
+  sort: true;
+  drun {
+    parse-user: true;
+    parse-system: true;
+  }
+}
+
+@theme "~/.config/rofi/themes/calm.rasi"

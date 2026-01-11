@@ -173,6 +173,7 @@
     home.packages = with pkgs; [
       fastfetch
       btop
+      rofi
     ];
   
     programs.git.settings.user = {
@@ -185,6 +186,8 @@
     xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hyprland.conf; # Hyprland
     xdg.configFile."waybar/config".source = ./dotfiles/waybar-config; # Waybar (Fichier config)
     xdg.configFile."waybar/style.css".source = ./dotfiles/waybar-style.css; # Waybar (Fichier css)
+    xdg.configFile."rofi/config.rasi".source = ./dotfiles/rofi/config.rasi; # Rofi config
+    xdg.configFile."rofi/themes/calm.rasi".source = ./dotfiles/rofi/calm.rasi; # Rofi theme
     
     # (Optionnel) Pour s'assurer que Waybar est bien géré
     programs.waybar.enable = true;

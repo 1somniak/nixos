@@ -1,0 +1,79 @@
+/* Night/Space theme for rofi with large icons */
+
+* {
+  font: "JetBrains Mono 12";
+  background: #0a0e27;
+  background-alt: #151a3d;
+  foreground: #e0e5ff;
+  accent: #7aa2f7;
+  accent-alt: #bb9af7;
+  border-color: #2d3561;
+  selected: #1f2647;
+  spacing: 12px;
+}
+
+window {
+  transparency: "real";
+  background-color: @background;
+  border: 2px;
+  border-color: @accent;
+  padding: 20px;
+  width: 35%;
+}
+
+mainbox {
+  spacing: @spacing;
+  background-color: transparent;
+}
+
+inputbar {
+  padding: 16px;
+  background-color: @background-alt;
+  border: 2px;
+  border-color: @border-color;
+}
+
+prompt {
+  padding: 0px 12px 0px 0px;
+  text-color: @accent-alt;
+}
+
+entry {
+  text-color: @foreground;
+  placeholder: "Rechercher...";
+  placeholder-color: #6070a0;
+  background-color: transparent;
+}
+
+listview {
+  padding: 8px 0px 0px 0px;
+  scrollbar: false;
+  fixed-height: false;
+  columns: 1;
+  lines: 5;
+  background-color: transparent;
+}
+
+element {
+  padding: 14px 16px;
+  text-color: @foreground;
+  background-color: transparent;
+  spacing: 16px;
+}
+
+element selected {
+  background-color: @selected;
+  border: 2px;
+  border-color: @accent;
+  text-color: @accent-alt;
+}
+
+element-icon {
+  size: 48px;
+  background-color: transparent;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+}
