@@ -80,6 +80,14 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;  # Interface graphique
 
+  # Swapfile 24 Go
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 24576; # size in MB (24 GB)
+    }
+  ];
+
   # Polices d'écriture (CRUCIAL pour avoir les icônes dans la barre)
   fonts.packages = with pkgs; [ # syntaxe pour unstable
     font-awesome
@@ -163,11 +171,16 @@
   # Ne change pas cette version
   system.stateVersion = "24.11"; 
 
-  # --- CONFIGURATION HOME MANAGER ---
+  # --- HOME MANAGER ---
   home-manager.useGlobalPkgs = true;
   home-manager.users.louis = { pkgs, ... }:
   {
     home.stateVersion = "24.11";
+
+    home.file.".config/kglobalshortcutsrc" = {
+      source = ./.config/kglobalshortcutsrc;
+    };
+
     home.packages = with pkgs; [
       fastfetch
       btop
@@ -178,9 +191,5 @@
       name  = "Louis Rodet";
       email = "louis.rodet@epita.fr";
     };
-  };
-
-  home.file.".config/kglobalshortcutsrc" = {
-    source = ./.config/kglobalshortcutsrc;
   };
 }
