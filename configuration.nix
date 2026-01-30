@@ -71,13 +71,10 @@
       theme = "breeze";
   };
 
-  # Activation de Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  # Activation de KDE Plasma
+  services.desktopManager.plasma6.enable = true;
 
-  # Accélération graphique (Indispensable pour Hyprland + Intel)
+  # Accélération graphique (Indispensable pour Nixos + Intel)
   hardware.graphics.enable = true;
   
   hardware.bluetooth.enable = true;
@@ -114,31 +111,17 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-        # KIT DE SURVIE HYPRLAND (Ne pas supprimer pour l'instant)
-        kitty       # Terminal (Ton seul moyen de communiquer avec l'OS au début)
-        wofi        # Lanceur d'application (Menu Démarrer)
-        waybar      # Barre d'état (Heure, batterie...)
-        dunst       # Notifications
-        wl-clipboard # Pour que le copier-coller fonctionne
+        kitty
         pavucontrol # pour le son
         brave
         unzip
         zip
         tree
         papirus-icon-theme
-        hyprpaper  # wallpaper
-        vanilla-dmz  # Le pack de curseurs
-        nwg-look        # L'outil pour l'appliquer aux apps
-        swayosd      # pour afficher le volume en flottant
-
         vscode-fhs
         xsel
         libreoffice
-
-        grim          # Le moteur de capture
-        slurp         # Le sélecteur de zone
         wl-clipboard  # Gestion du presse-papier
-        hyprshot      # Le script de confort pour Hyprland
 
         gcc
         rocmPackages.llvm.clang-unwrapped # clang format
@@ -152,6 +135,10 @@
 
   environment.shellAliases = {
     code = "code --ozone-platform=wayland"; # pour avoir vscode net
+  };
+
+  environment.sessionVariables = {
+    TERMINAL = "kitty";
   };
 
   # --- PROGRAMMES ---
@@ -184,7 +171,6 @@
     home.packages = with pkgs; [
       fastfetch
       btop
-      rofi
     ];
   
     programs.git.settings.user = {
@@ -192,19 +178,5 @@
       name  = "Louis Rodet";
       email = "louis.rodet@epita.fr";
     };
-  
-    # nixpkgs.config.allowUnfree = true; 
-    xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hyprland.conf; # Hyprland
-    xdg.configFile."waybar/config".source = ./dotfiles/waybar-config; # Waybar (Fichier config)
-    xdg.configFile."waybar/style.css".source = ./dotfiles/waybar-style.css; # Waybar (Fichier css)
-    xdg.configFile."waybar/switch-audio-sink.sh" = {
-      source = ./dotfiles/switch-audio-sink.sh;
-      executable = true;
-    };
-    xdg.configFile."rofi/config.rasi".source = ./dotfiles/rofi/config.rasi; # Rofi config
-    xdg.configFile."rofi/themes/calm.rasi".source = ./dotfiles/rofi/calm.rasi; # Rofi theme
-    
-    # (Optionnel) Pour s'assurer que Waybar est bien géré
-    programs.waybar.enable = true;
   };
 }
