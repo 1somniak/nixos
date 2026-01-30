@@ -179,4 +179,8 @@
       email = "louis.rodet@epita.fr";
     };
   };
+
+  home.file.".config/kglobalshortcutsrc" = {
+    source = ./.config/kglobalshortcutsrc;
+  };
 }
