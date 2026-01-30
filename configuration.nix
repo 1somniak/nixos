@@ -80,6 +80,9 @@
   # Accélération graphique (Indispensable pour Hyprland + Intel)
   hardware.graphics.enable = true;
   
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;  # Interface graphique
+
   # Polices d'écriture (CRUCIAL pour avoir les icônes dans la barre)
   fonts.packages = with pkgs; [ # syntaxe pour unstable
     font-awesome
@@ -119,13 +122,16 @@
         wl-clipboard # Pour que le copier-coller fonctionne
         pavucontrol # pour le son
         brave
+        unzip
+        zip
+        tree
         papirus-icon-theme
         hyprpaper  # wallpaper
         vanilla-dmz  # Le pack de curseurs
         nwg-look        # L'outil pour l'appliquer aux apps
         swayosd      # pour afficher le volume en flottant
 
-        vscode
+        vscode-fhs
         xsel
         libreoffice
 
@@ -136,6 +142,10 @@
 
         gcc
         rocmPackages.llvm.clang-unwrapped # clang format
+
+        typst
+        python3
+        nodejs_24
     ];
   };
 
@@ -187,6 +197,10 @@
     xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hyprland.conf; # Hyprland
     xdg.configFile."waybar/config".source = ./dotfiles/waybar-config; # Waybar (Fichier config)
     xdg.configFile."waybar/style.css".source = ./dotfiles/waybar-style.css; # Waybar (Fichier css)
+    xdg.configFile."waybar/switch-audio-sink.sh" = {
+      source = ./dotfiles/switch-audio-sink.sh;
+      executable = true;
+    };
     xdg.configFile."rofi/config.rasi".source = ./dotfiles/rofi/config.rasi; # Rofi config
     xdg.configFile."rofi/themes/calm.rasi".source = ./dotfiles/rofi/calm.rasi; # Rofi theme
     
