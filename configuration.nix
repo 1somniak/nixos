@@ -83,6 +83,14 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;  # Interface graphique
 
+  # Swapfile 24 Go
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 24576; # size in MB (24 GB)
+    }
+  ];
+
   # Polices d'écriture (CRUCIAL pour avoir les icônes dans la barre)
   fonts.packages = with pkgs; [ # syntaxe pour unstable
     font-awesome
