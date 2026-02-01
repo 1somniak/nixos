@@ -77,6 +77,8 @@
   # Accélération graphique (Indispensable pour Nixos + Intel)
   hardware.graphics.enable = true;
   
+  hardware.pulseaudio.enable = false;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;  # Interface graphique
 
@@ -108,6 +110,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   # --- UTILISATEUR ---
@@ -165,6 +168,7 @@
     pkgs.vim 
     pkgs.wget
     pkgs.git
+    pkgs.pulseaudio
     #pkgsStable.protonvpn-gui
   ];
 
