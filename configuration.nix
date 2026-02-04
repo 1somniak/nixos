@@ -141,6 +141,7 @@
 
         vscode-fhs
         xsel
+        bc
         libreoffice
 
         grim          # Le moteur de capture
