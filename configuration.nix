@@ -130,6 +130,7 @@
         wl-clipboard # Pour que le copier-coller fonctionne
         pavucontrol # pour le son
         brave
+        vlc
         unzip
         zip
         tree
