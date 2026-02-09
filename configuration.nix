@@ -119,7 +119,7 @@
   users.users.louis = {
     isNormalUser = true;
     description = "louis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
         # KIT DE SURVIE HYPRLAND (Ne pas supprimer pour l'instant)
@@ -152,6 +152,7 @@
 
         gcc
         rocmPackages.llvm.clang-unwrapped # clang format
+        docker
 
         typst
         python3
@@ -216,5 +217,12 @@
     
     # (Optionnel) Pour s'assurer que Waybar est bien géré
     programs.waybar.enable = true;
+  };
+
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
   };
 }
