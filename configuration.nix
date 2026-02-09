@@ -119,7 +119,7 @@
   users.users.louis = {
     isNormalUser = true;
     description = "louis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
         kitty
@@ -136,6 +136,7 @@
 
         gcc
         rocmPackages.llvm.clang-unwrapped # clang format
+        docker
 
         typst
         python3
@@ -195,5 +196,12 @@
       name  = "Louis Rodet";
       email = "louis.rodet@epita.fr";
     };
+  };
+
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
   };
 }
