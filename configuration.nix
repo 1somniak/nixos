@@ -153,6 +153,7 @@
         gcc
         rocmPackages.llvm.clang-unwrapped # clang format
         docker
+        wdisplays     # Gestion des affichages externes
 
         typst
         python3
