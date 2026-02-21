@@ -144,6 +144,7 @@
         xsel
         bc
         libreoffice
+        emacs
 
         grim          # Le moteur de capture
         slurp         # Le sélecteur de zone
@@ -158,6 +159,8 @@
         typst
         python3
         nodejs_24
+
+        qemu
     ];
   };
 
