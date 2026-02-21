@@ -132,6 +132,10 @@
         vscode-fhs
         xsel
         libreoffice
+        emacs
+
+        grim          # Le moteur de capture
+        slurp         # Le sélecteur de zone
         wl-clipboard  # Gestion du presse-papier
 
         gcc
@@ -141,6 +145,8 @@
         typst
         python3
         nodejs_24
+
+        qemu
     ];
   };
 
