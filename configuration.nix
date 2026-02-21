@@ -74,7 +74,12 @@
   # Activation de KDE Plasma
   services.desktopManager.plasma6.enable = true;
 
-  # Accélération graphique (Indispensable pour Nixos + Intel)
+  # logind - ne rien faire à la fermeture du capot (ne pas déco le wifi)
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.IdleAction = "ignore"; # Ne pas faire d'action au timeout d'inactivité
+
+  # Accélération graphique (Indispensable pour Hyprland + Intel)
   hardware.graphics.enable = true;
   
   hardware.pulseaudio.enable = false;
