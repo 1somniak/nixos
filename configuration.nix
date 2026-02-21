@@ -161,6 +161,8 @@
         nodejs_24
 
         qemu
+        
+        hyprlock      # Screen locker pour Hyprland
     ];
   };
 
