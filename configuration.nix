@@ -65,10 +65,12 @@
   services.flatpak.enable = true;
 
   # Le Gestionnaire de Connexion (Login Screen)
-  services.displayManager.sddm = {
+  services.displayManager = {
+    sddm = {
+      wayland.enable = true;
       enable = true;
-      wayland.enable = true; # Mode Wayland pour SDDM
-      theme = "breeze";
+      theme = "catppuccin-mocha-mauve";
+    };
   };
 
   # Activation de Hyprland
@@ -168,6 +170,7 @@
         qemu
         
         hyprlock      # Screen locker pour Hyprland
+        sddm-astronaut
     ];
   };
 
@@ -192,7 +195,10 @@
     pkgs.vim 
     pkgs.wget
     pkgs.git
-    #pkgsStable.protonvpn-gui
+    (pkgs.catppuccin-sddm.override {
+      flavor = "mocha";
+      accent = "mauve";
+    })
   ];
 
   # Ne change pas cette version
@@ -230,7 +236,6 @@
     # (Optionnel) Pour s'assurer que Waybar est bien géré
     programs.waybar.enable = true;
   };
-
 
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
