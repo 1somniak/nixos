@@ -220,6 +220,7 @@
     };
     xdg.configFile."rofi/config.rasi".source = ./dotfiles/rofi/config.rasi; # Rofi config
     xdg.configFile."rofi/themes/calm.rasi".source = ./dotfiles/rofi/calm.rasi; # Rofi theme
+    xdg.configFile."hypr/hyprlock.conf".source = ./dotfiles/hyprlock.conf; # Hyprlock (Screen locker)
     
     # (Optionnel) Pour s'assurer que Waybar est bien géré
     programs.waybar.enable = true;
