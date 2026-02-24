@@ -147,6 +147,10 @@
         nwg-look        # L'outil pour l'appliquer aux apps
         swayosd      # pour afficher le volume en flottant
 
+        # outils a la con
+        kdePackages.dolphin
+        ncdu
+
         vscode-fhs
         xsel
         bc
