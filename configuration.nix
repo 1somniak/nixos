@@ -123,6 +123,9 @@
   # --- UTILISATEUR ---
   users.defaultUserShell = pkgs.zsh;
 
+  documentation.enable = true;
+  documentation.man.enable = true;
+
   users.users.louis = {
     isNormalUser = true;
     description = "louis";
@@ -130,6 +133,9 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
         # KIT DE SURVIE HYPRLAND (Ne pas supprimer pour l'instant)
+        man-db
+        man-pages
+        man-pages-posix
         kitty       # Terminal (Ton seul moyen de communiquer avec l'OS au début)
         wofi        # Lanceur d'application (Menu Démarrer)
         waybar      # Barre d'état (Heure, batterie...)
@@ -181,6 +187,9 @@
 
   environment.shellAliases = {
     code = "code --ozone-platform=wayland"; # pour avoir vscode net
+  };
+
+  environment.variables = {
   };
 
   # --- PROGRAMMES ---
