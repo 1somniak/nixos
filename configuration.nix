@@ -121,13 +121,23 @@
   # --- UTILISATEUR ---
   users.defaultUserShell = pkgs.zsh;
 
+  documentation.enable = true;
+  documentation.man.enable = true;
+
   users.users.louis = {
     isNormalUser = true;
     description = "louis";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-        kitty
+        man-db
+        man-pages
+        man-pages-posix
+        kitty       # Terminal (Ton seul moyen de communiquer avec l'OS au début)
+        wofi        # Lanceur d'application (Menu Démarrer)
+        waybar      # Barre d'état (Heure, batterie...)
+        dunst       # Notifications
+        wl-clipboard # Pour que le copier-coller fonctionne
         pavucontrol # pour le son
         brave
         unzip
@@ -162,6 +172,9 @@
 
   environment.sessionVariables = {
     TERMINAL = "kitty";
+  };
+
+  environment.variables = {
   };
 
   # --- PROGRAMMES ---
