@@ -177,6 +177,7 @@
         nodejs_24
 
         qemu
+        kvmtool
         
         hyprlock      # Screen locker pour Hyprland
         sddm-astronaut
@@ -256,4 +257,15 @@
     enable = true;
     setSocketVariable = true;
   };
+
+
+  # Virtual machine management
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["louis"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  #trustedInterfaces = [ "virbr0" ];
+  #virtualisation.libvirtd.enable = true;
+
+
 }
