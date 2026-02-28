@@ -25,8 +25,7 @@
   programs.nm-applet.enable = true;
 
   # dire à PAM (le gestionnaire d'authentification)de déverrouiller le trousseau quand on se connecte.
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.hyprland.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = false;
 
   # Flakes sont toujours utiles
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -154,7 +153,10 @@
 
         # outils a la con
         kdePackages.dolphin
+        kdePackages.koko
         ncdu
+        sl
+        asciiquarium
 
         vscode-fhs
         xsel
