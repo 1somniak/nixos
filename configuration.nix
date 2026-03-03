@@ -158,7 +158,12 @@
         docker
 
         typst
-        python3
+        (python3.withPackages (ps: with ps; [
+          numpy
+          pandas
+          scipy
+          plotly
+        ]))
         nodejs_24
 
         qemu
