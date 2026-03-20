@@ -145,6 +145,7 @@
         unzip
         zip
         tree
+        jq
         papirus-icon-theme
         hyprpaper  # wallpaper
         vanilla-dmz  # Le pack de curseurs
@@ -157,6 +158,11 @@
         ncdu
         sl
         asciiquarium
+        flameshot # capture d'ecran
+        direnv
+        cmatrix
+        sssnake
+        cowsay
 
         vscode-fhs
         xsel
@@ -188,6 +194,13 @@
         
         hyprlock      # Screen locker pour Hyprland
         sddm-astronaut
+
+        hugo
+
+        # jetbrains
+        jetbrains-toolbox
+
+        jdk21_headless # java
     ];
   };
 
