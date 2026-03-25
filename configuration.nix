@@ -198,9 +198,11 @@
         hugo
 
         # jetbrains
-        jetbrains-toolbox
+        # jetbrains-toolbox
+        jetbrains.idea
 
         jdk21_headless # java
+        maven
     ];
   };
 
@@ -269,6 +271,7 @@
     xdg.configFile."hypr/wallpapers".source = ./dotfiles/wallpapers;
     home.file.".zsh-powerline.sh".source = ./dotfiles/.zsh-powerline.sh;
     home.file.".zshrc".source = ./dotfiles/.zshrc;
+    home.file.".vimrc".source = ./dotfiles/.vimrc;
     
     # (Optionnel) Pour s'assurer que Waybar est bien géré
     programs.waybar.enable = true;
