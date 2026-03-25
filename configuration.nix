@@ -267,6 +267,8 @@
     xdg.configFile."hypr/hyprlock.conf".source = ./dotfiles/hyprlock.conf; # Hyprlock (Screen locker)
     xdg.configFile."hypr/hyprpaper.conf".source = ./dotfiles/hyprpaper.conf; # Hyprpaper (Wallpaper)
     xdg.configFile."hypr/wallpapers".source = ./dotfiles/wallpapers;
+    home.file.".zsh-powerline.sh".source = ./dotfiles/.zsh-powerline.sh;
+    home.file.".zshrc".source = ./dotfiles/.zshrc;
     
     # (Optionnel) Pour s'assurer que Waybar est bien géré
     programs.waybar.enable = true;
