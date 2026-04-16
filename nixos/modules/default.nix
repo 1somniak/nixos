@@ -4,6 +4,7 @@
   imports = [
     ./nixpkgs.nix
     ./nix-settings.nix
+    ./programs.nix
     ./networking.nix
     ./locale.nix
     ./users.nix
