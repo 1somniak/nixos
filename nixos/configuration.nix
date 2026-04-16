@@ -9,11 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./packages/default.nix
+      ./modules/default.nix
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.firewall.checkReversePath = false;
@@ -46,76 +43,6 @@
     LC_PAPER = "fr_FR.UTF-8";
     LC_TELEPHONE = "fr_FR.UTF-8";
     LC_TIME = "fr_FR.UTF-8";
-  };
-
-  # --- CONFIGURATION GRAPHIQUE & HYPRLAND ---
-
-  # On garde X11 activé pour la gestion du clavier au login (SDDM)
-  services.xserver.enable = true;
-
-  # Configuration du clavier (AZERTY)
-  services.xserver.xkb = {
-    layout = "fr";
-    variant = "azerty";
-  };
-  console.keyMap = "fr";
-
-  services.flatpak.enable = true;
-
-  # Le Gestionnaire de Connexion (Login Screen)
-  services.displayManager = {
-    sddm = {
-      wayland.enable = true;
-      enable = true;
-      theme = "catppuccin-mocha-mauve";
-    };
-  };
-
-  # Activation de Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  # logind - ne rien faire à la fermeture du capot (ne pas déco le wifi)
-  services.logind.settings.Login.HandleLidSwitch = "ignore";
-  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
-  services.logind.settings.Login.IdleAction = "ignore"; # Ne pas faire d'action au timeout d'inactivité
-
-  # Accélération graphique (Indispensable pour Hyprland + Intel)
-  hardware.graphics.enable = true;
-  
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;  # Interface graphique
-
-  # Swapfile 24 Go
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 24576; # size in MB (24 GB)
-    }
-  ];
-
-  # Polices d'écriture (CRUCIAL pour avoir les icônes dans la barre)
-  fonts.packages = with pkgs; [ # syntaxe pour unstable
-    font-awesome
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-  ];
-  #fonts.packages = with pkgs; [ # syntaxe pour 24.11
-  #  font-awesome
-  #  (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
-  #];
-
-  # --- SON ---
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
   };
 
   # --- UTILISATEUR ---
@@ -169,33 +96,5 @@
     home.file.".zsh-powerline.sh".source = ../dotfiles/.zsh-powerline.sh;
     home.file.".zshrc".source = ../dotfiles/.zshrc;
     home.file.".vimrc".source = ../dotfiles/.vimrc;
-  };
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-
-  # Virtual machine management
-  programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["louis"];
-  virtualisation.spiceUSBRedirection.enable = true;
-
-  virtualisation.libvirtd.enable = true;
-  virtualisation.libvirtd.qemu.runAsRoot = true;
-  networking.firewall.trustedInterfaces = ["virbr0"];
-  systemd.services.libvirt-default-network = {
-    description = "Start libvirt default network";
-    after = ["libvirtd.service"];
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${pkgs.libvirt}/bin/virsh net-start default";
-      ExecStop = "${pkgs.libvirt}/bin/virsh net-destroy default";
-      User = "root";
-    };
   };
 }
