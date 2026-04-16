@@ -9,12 +9,6 @@
       # home manager version = system version
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Secrets Wi-Fi (fichier local non-flake)
-    wifi = {
-      url = "path:/etc/nixos/wifi.nix";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {

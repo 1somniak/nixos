@@ -39,21 +39,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "wifi": "wifi"
-      }
-    },
-    "wifi": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1768087011,
-        "narHash": "sha256-8Kn8EdlD60gZ4Tc99kVsmtgKwHTt0gkG4aW1PPqyRGA=",
-        "path": "/etc/nixos/wifi.nix",
-        "type": "path"
-      },
-      "original": {
-        "path": "/etc/nixos/wifi.nix",
-        "type": "path"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
