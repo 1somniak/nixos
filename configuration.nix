@@ -318,10 +318,21 @@
   # Virtual machine management
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["louis"];
-  virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
-  #trustedInterfaces = [ "virbr0" ];
-  #virtualisation.libvirtd.enable = true;
 
-
+  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.qemu.runAsRoot = true;
+  networking.firewall.trustedInterfaces = ["virbr0"];
+  systemd.services.libvirt-default-network = {
+    description = "Start libvirt default network";
+    after = ["libvirtd.service"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.libvirt}/bin/virsh net-start default";
+      ExecStop = "${pkgs.libvirt}/bin/virsh net-destroy default";
+      User = "root";
+    };
+  };
 }
