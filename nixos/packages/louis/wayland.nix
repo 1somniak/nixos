@@ -26,5 +26,6 @@
 
     wdisplays
     vscode-fhs
+    zed-editor
   ];
 }
