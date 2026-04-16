@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #<home-manager/nixos>
+      ./packages/default.nix
     ];
 
   # Bootloader.
@@ -129,113 +129,7 @@
     description = "louis";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-        # KIT DE SURVIE HYPRLAND (Ne pas supprimer pour l'instant)
-        man-db
-        man-pages
-        man-pages-posix
-        kitty       # Terminal (Ton seul moyen de communiquer avec l'OS au début)
-        wofi        # Lanceur d'application (Menu Démarrer)
-        waybar      # Barre d'état (Heure, batterie...)
-        dunst       # Notifications
-        wl-clipboard # Pour que le copier-coller fonctionne
-        pavucontrol # pour le son
-        brave
-        vlc
-        ffmpeg
-        unzip
-        zip
-        tree
-        jq
-        papirus-icon-theme
-        hyprpaper  # wallpaper
-        vanilla-dmz  # Le pack de curseurs
-        nwg-look        # L'outil pour l'appliquer aux apps
-        swayosd      # pour afficher le volume en flottant
-
-        # outils a la con
-        kdePackages.dolphin
-        kdePackages.koko
-        ncdu
-        sl
-        asciiquarium
-        flameshot # capture d'ecran
-        direnv
-        cmatrix
-        sssnake
-        cowsay
-        peaclock
-
-        vscode-fhs
-        xsel
-        bc
-        libreoffice
-        emacs
-
-        grim          # Le moteur de capture
-        slurp         # Le sélecteur de zone
-        wl-clipboard  # Gestion du presse-papier
-        hyprshot      # Le script de confort pour Hyprland
-
-        gcc
-        bison
-        flex
-        fontforge
-        makeWrapper
-        pkg-config
-        gnumake
-        libiconv
-        autoconf
-        automake
-        libtool # freetype calls glibtoolize
-        criterion
-        pre-commit
-        libpcap
-        pkg-config
-        bear
-        gdb
-        pkgs.llvmPackages_20.clang-unwrapped
-
-        rocmPackages.llvm.clang-unwrapped # clang format
-        docker
-        wdisplays     # Gestion des affichages externes
-
-        typst
-        (python3.withPackages (ps: with ps; [
-          numpy
-          pandas
-          scipy
-          plotly
-          requests
-
-        ]))
-        nodejs_24
-
-        qemu
-        kvmtool
-        
-        hyprlock      # Screen locker pour Hyprland
-        sddm-astronaut
-
-        hugo
-
-        # jetbrains
-        # jetbrains-toolbox
-        jetbrains.idea
-
-        jdk21_headless # java
-        maven
-
-        postgresql
-
-        #cracking
-        file
-        ghidra
-        wineWowPackages.stable #pour lancer des binaires windows
-    ];
   };
-
-  services.postgresql.enable = true;
 
 
   environment.shellAliases = {
@@ -245,28 +139,6 @@
   environment.variables = {
   };
 
-  # --- PROGRAMMES ---
-
-  # Navigateur Web
-  programs.firefox.enable = true;
-
-  # Shell
-  programs.zsh.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # --- PAQUETS SYSTÈME ---
-  environment.systemPackages = [
-    pkgs.vim 
-    pkgs.wget
-    pkgs.git
-    (pkgs.catppuccin-sddm.override {
-      flavor = "mocha";
-      accent = "mauve";
-    })
-  ];
-
   # Ne change pas cette version
   system.stateVersion = "24.11"; 
 
@@ -275,12 +147,6 @@
   home-manager.users.louis = { pkgs, ... }:
   {
     home.stateVersion = "24.11";
-    home.packages = with pkgs; [
-      fastfetch
-      btop
-      rofi
-    ];
-  
     programs.git.settings.user = {
       enable = true;
       name  = "Louis Rodet";
@@ -303,9 +169,6 @@
     home.file.".zsh-powerline.sh".source = ../dotfiles/.zsh-powerline.sh;
     home.file.".zshrc".source = ../dotfiles/.zshrc;
     home.file.".vimrc".source = ../dotfiles/.vimrc;
-    
-    # (Optionnel) Pour s'assurer que Waybar est bien géré
-    programs.waybar.enable = true;
   };
 
   virtualisation.docker.enable = true;
