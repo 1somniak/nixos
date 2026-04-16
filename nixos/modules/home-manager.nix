@@ -1,10 +1,10 @@
 { ... }:
 
 {
-  home-manager.useGlobalPkgs = true;
   home-manager.users.louis = { ... }:
   {
     home.stateVersion = "24.11";
+    programs.waybar.enable = true;
     programs.git.settings.user = {
       enable = true;
       name = "Louis Rodet";

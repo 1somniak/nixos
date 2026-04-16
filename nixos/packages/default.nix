@@ -11,7 +11,4 @@
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
-
-  services.postgresql.enable = true;
-  home-manager.users.louis.programs.waybar.enable = true;
 }

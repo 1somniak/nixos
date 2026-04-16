@@ -3,6 +3,7 @@
 {
   # --- SON ---
   services.pulseaudio.enable = false;
+  services.postgresql.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
