@@ -12,12 +12,8 @@
     tree
     jq
     ncdu
-    sl
     asciiquarium
     direnv
-    cmatrix
-    sssnake
-    cowsay
     peaclock
 
     xsel
