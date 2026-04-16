@@ -84,7 +84,8 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": " Muted",
-        "on-click": "$HOME/.config/waybar/switch-audio-sink.sh",
+        "on-click": "pavucontrol",
+        "on-click-middle": "$HOME/.config/waybar/switch-audio-sink.sh",
         "on-click-right": "pavucontrol",
         "scroll-step": 5,
         "format-icons": {
