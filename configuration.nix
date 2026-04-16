@@ -142,6 +142,7 @@
         pavucontrol # pour le son
         brave
         vlc
+        ffmpeg
         unzip
         zip
         tree
@@ -163,6 +164,7 @@
         cmatrix
         sssnake
         cowsay
+        peaclock
 
         vscode-fhs
         xsel
@@ -176,6 +178,24 @@
         hyprshot      # Le script de confort pour Hyprland
 
         gcc
+        bison
+        flex
+        fontforge
+        makeWrapper
+        pkg-config
+        gnumake
+        libiconv
+        autoconf
+        automake
+        libtool # freetype calls glibtoolize
+        criterion
+        pre-commit
+        libpcap
+        pkg-config
+        bear
+        gdb
+        pkgs.llvmPackages_20.clang-unwrapped
+
         rocmPackages.llvm.clang-unwrapped # clang format
         docker
         wdisplays     # Gestion des affichages externes
@@ -186,6 +206,8 @@
           pandas
           scipy
           plotly
+          requests
+
         ]))
         nodejs_24
 
@@ -203,8 +225,17 @@
 
         jdk21_headless # java
         maven
+
+        postgresql
+
+        #cracking
+        file
+        ghidra
+        wineWowPackages.stable #pour lancer des binaires windows
     ];
   };
+
+  services.postgresql.enable = true;
 
 
   environment.shellAliases = {
