@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./nixpkgs.nix
     ./nix-settings.nix
     ./networking.nix
     ./locale.nix
