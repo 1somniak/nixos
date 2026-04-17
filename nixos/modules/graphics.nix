@@ -1,5 +1,32 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
+let
+  astronaut-theme = pkgs.stdenv.mkDerivation {
+    name = "sddm-astronaut-theme";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "Keyitdev";
+      repo = "sddm-astronaut-theme";
+      rev = "master";
+      sha256 = "sha256-+94WVxOWfVhIEiVNWwnNBRmN+d1kbZCIF10Gjorea9M=";
+    };
+
+    installPhase = ''
+      mkdir -p $out/share/sddm/themes
+      cp -r . $out/share/sddm/themes/sddm-astronaut-theme
+
+      substituteInPlace $out/share/sddm/themes/sddm-astronaut-theme/metadata.desktop \
+        --replace "ConfigFile=Themes/astronaut.conf" "ConfigFile=Themes/japanese_aesthetic.conf" \
+        --replace "Screenshot=Previews/astronaut.png" "Screenshot=Backgrounds/japanese_aesthetic.png"
+
+      theme_conf="$(find $out/share/sddm/themes/sddm-astronaut-theme -type f -name theme.conf | head -n1 || true)"
+      if [ -n "$theme_conf" ]; then
+        substituteInPlace "$theme_conf" \
+          --replace "BackgroundType=video" "BackgroundType=image"
+      fi
+    '';
+  };
+in
 {
   # --- CONFIGURATION GRAPHIQUE & HYPRLAND ---
 
@@ -20,9 +47,16 @@
     sddm = {
       wayland.enable = true;
       enable = true;
-      theme = "catppuccin-mocha-mauve";
+      theme = "sddm-astronaut-theme";
+      extraPackages = with pkgs; [
+        qt6.qtmultimedia
+      ];
     };
   };
+
+  environment.systemPackages = [
+    astronaut-theme
+  ];
 
   # Activation de Hyprland
   programs.hyprland = {
