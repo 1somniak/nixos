@@ -29,7 +29,6 @@ in
 
     # Shell
     home.file.".zsh-powerline.sh".source = dotfiles + "/shell/.zsh-powerline.sh";
-    home.file.".zshrc".source = dotfiles + "/shell/.zshrc";
 
     # Waybar
     xdg.configFile."waybar/config".source = dotfiles + "/waybar/config";

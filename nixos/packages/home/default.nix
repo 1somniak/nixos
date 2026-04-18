@@ -1,9 +1,15 @@
 { pkgs, ... }:
 
 {
-  home-manager.users.louis.home.packages = with pkgs; [
+  home-manager.users.louis = {
+    imports = [
+      ./zsh.nix
+    ];
+
+    home.packages = with pkgs; [
     fastfetch
     btop
     rofi
   ];
+  };
 }
