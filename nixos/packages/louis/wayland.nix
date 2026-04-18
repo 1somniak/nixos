@@ -1,5 +1,10 @@
 { pkgs, ... }:
 
+let
+  vscode-nosandbox = pkgs.writeShellScriptBin "code" ''
+    exec ${pkgs.vscode}/bin/code --no-sandbox "$@"
+  '';
+in
 {
   users.users.louis.packages = with pkgs; [
     kitty       # Terminal
@@ -25,7 +30,7 @@
     sddm-astronaut
 
     wdisplays
-    vscode-fhs
+    vscode-nosandbox # vscode-fhs but with --no-sandbox (to avoid "no new privileges" flag is set)
     zed-editor
   ];
 }
