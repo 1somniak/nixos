@@ -42,15 +42,14 @@ in
 
   services.flatpak.enable = true;
 
-  # Le Gestionnaire de Connexion (Login Screen)
-  services.displayManager = {
-    sddm = {
-      wayland.enable = true;
-      enable = true;
-      theme = "sddm-astronaut-theme";
-      extraPackages = with pkgs; [
-        qt6.qtmultimedia
-      ];
+  # Gestionnaire de connexion: greetd + tuigreet
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
+        user = "louis";
+      };
     };
   };
 
