@@ -27,7 +27,6 @@ in
     slurp
     hyprshot
     hyprlock
-    sddm-astronaut
 
     wdisplays
     vscode-nosandbox # vscode-fhs but with --no-sandbox (to avoid "no new privileges" flag is set)

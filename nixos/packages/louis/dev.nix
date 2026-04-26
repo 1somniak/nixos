@@ -41,8 +41,9 @@
     docker
     postgresql
 
+    # crack
     file
     ghidra
-    wineWowPackages.stable
+    wineWow64Packages.stable
   ];
 }

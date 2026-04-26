@@ -5,9 +5,5 @@
     vim
     wget
     git
-    (catppuccin-sddm.override {
-      flavor = "mocha";
-      accent = "mauve";
-    })
   ];
 }
