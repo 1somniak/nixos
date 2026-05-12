@@ -29,6 +29,10 @@ in
 
     # Shell
     home.file.".zsh-powerline.sh".source = dotfiles + "/shell/.zsh-powerline.sh";
+    xdg.configFile."background.sh" = {
+      source = dotfiles + "/shell/background.sh";
+      executable = true;
+    };
 
     # Waybar
     xdg.configFile."waybar/config".source = dotfiles + "/waybar/config";

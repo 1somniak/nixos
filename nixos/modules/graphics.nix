@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # --- CONFIGURATION GRAPHIQUE & HYPRLAND ---
@@ -30,6 +30,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   # logind - ne rien faire à la fermeture du capot (ne pas déco le wifi)

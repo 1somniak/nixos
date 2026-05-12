@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   vscode-nosandbox = pkgs.writeShellScriptBin "code" ''
