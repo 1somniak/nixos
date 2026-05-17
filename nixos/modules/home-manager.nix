@@ -34,6 +34,10 @@ in
       executable = true;
     };
 
+    # Fastfetch
+    xdg.configFile."fastfetch/config.jsonc".source = dotfiles + "/fastfetch/config.jsonc";
+    xdg.configFile."fastfetch/logo.txt".source = dotfiles + "/fastfetch/logo.txt";
+
     # Waybar
     xdg.configFile."waybar/config".source = dotfiles + "/waybar/config";
     xdg.configFile."waybar/style.css".source = dotfiles + "/waybar/style.css";
