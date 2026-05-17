@@ -7,5 +7,6 @@
     ./video.nix
     ./dev.nix
     ./useless.nix
+    ./games.nix
   ];
 }
