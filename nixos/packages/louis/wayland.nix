@@ -31,5 +31,9 @@ in
     wdisplays
     vscode-nosandbox # vscode-fhs but with --no-sandbox (to avoid "no new privileges" flag is set)
     zed-editor
+
+    # Matrix client
+    cinny-desktop
+    fluffychat
   ];
 }
