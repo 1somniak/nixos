@@ -23,20 +23,19 @@
 
     typst
     (python3.withPackages (ps: with ps; [
-      numpy
-      pandas
-      scipy
-      plotly
-      requests
+    #  numpy
+    #  pandas
+    #  scipy
+    #  plotly
+    #  requests
     ]))
     nodejs_24
 
     qemu
     kvmtool
     hugo
-    jetbrains.idea
-    jdk21_headless
-    maven
+    #jdk21_headless
+    #maven
 
     docker
     postgresql

@@ -1,10 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  vscode-nosandbox = pkgs.writeShellScriptBin "code" ''
-    exec ${pkgs.vscode}/bin/code --no-sandbox "$@"
-  '';
-in
 {
   users.users.louis.packages = with pkgs; [
     kitty       # Terminal
@@ -23,14 +18,9 @@ in
     kdePackages.koko
 
     flameshot
-    grim
-    slurp
-    hyprshot
     hyprlock
 
     wdisplays
-    vscode-nosandbox # vscode-fhs but with --no-sandbox (to avoid "no new privileges" flag is set)
-    zed-editor
 
     # Matrix client
     cinny-desktop

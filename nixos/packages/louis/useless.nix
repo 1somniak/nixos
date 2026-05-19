@@ -6,5 +6,6 @@
     cmatrix
     sssnake
     cowsay
+    asciiquarium
   ];
 }

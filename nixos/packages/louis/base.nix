@@ -12,7 +12,6 @@
     tree
     jq
     ncdu
-    asciiquarium
     direnv
     peaclock
 
