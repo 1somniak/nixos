@@ -33,6 +33,10 @@ in
       source = dotfiles + "/shell/background.sh";
       executable = true;
     };
+    xdg.configFile."check-updates-nixos.sh" = {
+      source = dotfiles + "/shell/check-updates-nixos.sh";
+      executable = true;
+    };
 
     # Fastfetch
     xdg.configFile."fastfetch/config.jsonc".source = dotfiles + "/fastfetch/config.jsonc";
