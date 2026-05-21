@@ -23,6 +23,9 @@ in
     xdg.configFile."hypr/hyprpaper.conf".source = dotfiles + "/hypr/hyprpaper.conf";
     xdg.configFile."hypr/wallpapers".source = dotfiles + "/hypr/wallpapers";
 
+    # notifs
+    xdg.configFile."dunst/dunstrc".source = dotfiles + "/notifs/dunstrc";
+
     # Rofi
     xdg.configFile."rofi/config.rasi".source = dotfiles + "/rofi/config.rasi";
     xdg.configFile."rofi/themes/calm.rasi".source = dotfiles + "/rofi/calm.rasi";
