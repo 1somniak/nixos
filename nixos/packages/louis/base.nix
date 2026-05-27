@@ -20,5 +20,9 @@
     libreoffice
     emacs
     nix-tree
+    grim
+    slurp
+    (pkgs."wl-clipboard")
+    swappy
   ];
 }

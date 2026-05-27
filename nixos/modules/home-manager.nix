@@ -22,6 +22,10 @@ in
     xdg.configFile."hypr/hyprlock.conf".source = dotfiles + "/hypr/hyprlock.conf";
     xdg.configFile."hypr/hyprpaper.conf".source = dotfiles + "/hypr/hyprpaper.conf";
     xdg.configFile."hypr/wallpapers".source = dotfiles + "/hypr/wallpapers";
+    xdg.configFile."hypr/screenshot-edit.sh" = {
+      source = dotfiles + "/hypr/screenshot-edit.sh";
+      executable = true;
+    };
 
     # notifs
     xdg.configFile."dunst/dunstrc".source = dotfiles + "/notifs/dunstrc";

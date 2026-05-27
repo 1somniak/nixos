@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -d "$HOME/Documents" ] && [ -z "$(find "$HOME/Documents" -mindepth 1 -print -quit)" ] && rmdir "$HOME/Documents" # remove ~/Downloads if empty
 eval "$(direnv hook zsh)"
 source ~/.alias.sh
 source ~/.zsh-powerline.sh
