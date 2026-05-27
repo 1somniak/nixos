@@ -19,5 +19,6 @@
     bc
     libreoffice
     emacs
+    nix-tree
   ];
 }
