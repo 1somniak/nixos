@@ -10,5 +10,6 @@ in
     vscode-nosandbox # vscode-fhs but with --no-sandbox (to avoid "no new privileges" flag is set)
     #jetbrains.idea
     #zed-editor
+    antigravity
   ];
 }
