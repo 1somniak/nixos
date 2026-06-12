@@ -28,7 +28,8 @@ in
     };
 
     # notifs
-    xdg.configFile."dunst/dunstrc".source = dotfiles + "/notifs/dunstrc";
+    xdg.configFile."swaync/config.json".source = dotfiles + "/notifs/config.json";
+    xdg.configFile."swaync/style.css".source = dotfiles + "/notifs/style.css";
 
     # Rofi
     xdg.configFile."rofi/config.rasi".source = dotfiles + "/rofi/config.rasi";

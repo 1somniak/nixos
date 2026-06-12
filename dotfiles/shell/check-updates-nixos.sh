@@ -22,5 +22,7 @@ count=$(echo "$inputs" | sed '/^$/d' | wc -l)
 
 if [ "$count" -gt 0 ]; then
     list=$(echo "$inputs" | paste -sd ", " -)
-    dunstify "NixOS updates availables :" "$count updated inputs: $list"
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send "NixOS updates availables :" "$count updated inputs: $list"
+    fi
 fi

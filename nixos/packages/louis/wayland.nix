@@ -5,7 +5,8 @@
     kitty       # Terminal
     wofi        # Lanceur d'application
     waybar      # Barre d'état
-    dunst       # Notifications
+    swaynotificationcenter      # Notifications
+    libnotify   # Utilitaire notify-send
     wl-clipboard
     pavucontrol
     papirus-icon-theme

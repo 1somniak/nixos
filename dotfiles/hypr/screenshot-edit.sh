@@ -21,8 +21,11 @@ cp "$TMPFILE" "$DEST_DIR/$NAME"
 wl-copy < "$TMPFILE" || true
 
 # notify user
-if command -v dunstify >/dev/null 2>&1; then
-  dunstify "Screenshot saved" "$DEST_DIR/$NAME"
+if command -v notify-send >/dev/null 2>&1; then
+  ACTION=$(notify-send "Screenshot saved" "$DEST_DIR/$NAME" --action="copy_path=Copy Path")
+  if [ "$ACTION" = "copy_path" ]; then
+    echo -n "$DEST_DIR/$NAME" | wl-copy
+  fi
 fi
 
 rm -f "$TMPFILE"
