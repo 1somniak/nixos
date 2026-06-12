@@ -5,5 +5,6 @@
     openttd
     foundry
     mari0
+    steam
   ];
 }

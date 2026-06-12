@@ -18,6 +18,7 @@
     libpcap
     bear
     gdb
+    graphviz
     llvmPackages_20.clang-unwrapped
     rocmPackages.llvm.clang-unwrapped
 
@@ -28,12 +29,15 @@
     #  scipy
     #  plotly
     #  requests
+      matplotlib
+      yt-dlp
     ]))
     nodejs_24
 
     qemu
     kvmtool
     hugo
+    jdk21
     #jdk21_headless
     #maven
 
@@ -44,5 +48,10 @@
     file
     ghidra
     wineWow64Packages.stable
+
+    gitlab-runner
+    gitlab-ci-local
+    git-lfs
+    freerdp
   ];
 }
