@@ -4,6 +4,8 @@ let
   dotfiles = ../../dotfiles;
 in
 {
+  home-manager.backupFileExtension = "backup";
+
   home-manager.users.louis = { ... }:
   {
     home.stateVersion = "24.11";
@@ -49,6 +51,12 @@ in
     # Fastfetch
     xdg.configFile."fastfetch/config.jsonc".source = dotfiles + "/fastfetch/config.jsonc";
     xdg.configFile."fastfetch/logo.txt".source = dotfiles + "/fastfetch/logo.txt";
+
+    # Eww
+    xdg.configFile."eww" = {
+      source = dotfiles + "/eww";
+      recursive = true;
+    };
 
     # Waybar
     xdg.configFile."waybar/config".source = dotfiles + "/waybar/config";

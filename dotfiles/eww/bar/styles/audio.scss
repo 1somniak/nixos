@@ -1,0 +1,50 @@
+@import "../../theme/tokens.scss";
+
+.audio-box {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  .audio-icon {
+    font-size: $large;
+    transition: color 0.2s ease;
+
+    &.unmuted {
+      color: $text;
+    }
+
+    &.muted {
+      color: $red;
+    }
+  }
+
+  .audio-text {
+    font-size: $normal;
+    font-weight: bold;
+    transition: color 0.2s ease;
+
+    &.unmuted {
+      color: $text;
+    }
+
+    &.muted {
+      color: $red;
+    }
+  }
+}
+
+.mic-box {
+  padding: 0 2px;
+
+  .mic-icon {
+    font-size: 19px;
+    transition: color 0.2s ease;
+
+    &.unmuted {
+      color: $sky;
+    }
+
+    &.muted {
+      color: $overlay2;
+    }
+  }
+}

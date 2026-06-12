@@ -7,5 +7,6 @@
     sssnake
     cowsay
     asciiquarium
+    xlockmore
   ];
 }

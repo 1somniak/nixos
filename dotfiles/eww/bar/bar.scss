@@ -1,0 +1,49 @@
+@import "../theme/tokens.scss";
+
+.bar {
+  background-color: transparent;
+  border-radius: 0px;
+
+  .sep {
+    color: rgba($overlay1, 0.4);
+  }
+
+  .left-container {
+    background-color: rgba($base, 0.9);
+    padding: 0 14px 0 12px;
+    border-radius: 0 16px 16px 0;
+
+    .arch-icon {
+      font-size: 19px;
+      color: $sapphire;
+    }
+  }
+
+  .center-container {
+    padding: 0 20px;
+
+    .time {
+      font-size: $larger;
+      font-weight: bold;
+      color: $text;
+    }
+  }
+
+  .right-container {
+    background-color: rgba($base, 0.9);
+    padding: 0 14px 0 14px;
+    border-radius: 16px 0 0 16px;
+  }
+
+  .panel-trigger {
+    color: $teal;
+    font-size: 20px;
+    margin-right: 4px;
+    margin-left: -10px;
+    padding: 0 8px 0 10px;
+
+    &:hover {
+      color: rgba($sapphire, 0.9);
+    }
+  }
+}

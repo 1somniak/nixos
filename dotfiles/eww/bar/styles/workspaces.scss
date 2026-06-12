@@ -1,0 +1,56 @@
+@import "../../theme/tokens.scss";
+
+.ws-container {
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  .ws-indicator {
+    background-color: rgba($blue, 0.15);
+    min-height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+  }
+
+  .ws {
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 0;
+    margin: 0 3px;
+    min-height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: bold;
+    color: $overlay1;
+    transition: all 0.2s ease;
+
+    .ws-label {
+      padding: 0;
+      margin: 0;
+    }
+
+    &.active {
+      color: $blue;
+    }
+
+    &.occupied {
+      color: $text;
+    }
+
+    &.urgent {
+      color: $maroon;
+    }
+
+    &.empty {
+      color: $overlay1;
+    }
+
+    &:hover {
+      color: $blue;
+      background-color: rgba($blue, 0.08);
+    }
+  }
+}

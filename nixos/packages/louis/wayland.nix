@@ -14,6 +14,10 @@
     vanilla-dmz
     nwg-look
     swayosd
+    eww                         # Widgets (athena-eww)
+    brightnessctl               # Contrôle luminosité (pour eww)
+    inotify-tools               # Surveillance de fichiers (pour eww todo)
+    socat                       # Socket Hyprland (pour eww workspaces)
 
     kdePackages.dolphin
     kdePackages.koko

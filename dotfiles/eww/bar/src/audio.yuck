@@ -1,0 +1,21 @@
+(deflisten volume_mic_state
+  :initial '{"audio": "unmuted", "audio_vol": "0", "mic": "unmuted", "mic_vol": "0"}'
+  "~/.config/eww/bar/scripts/audio_mic.sh")
+
+(defwidget widget_audio []
+  (box :class "audio-box"
+       :orientation "horizontal"
+       :space-evenly false
+       :spacing 12
+       (label :class "audio-icon ${volume_mic_state.audio}"
+              :text {volume_mic_state.audio == "muted" ? "" : ""})
+       (label :class "audio-text ${volume_mic_state.audio}"
+              :text "${volume_mic_state.audio_vol}%"))
+)
+
+(defwidget widget_mic []
+  (box :class "mic-box"
+       :orientation "horizontal"
+       (label :class "mic-icon ${volume_mic_state.mic}"
+              :text {volume_mic_state.mic == "muted" ? "" : ""}))
+)

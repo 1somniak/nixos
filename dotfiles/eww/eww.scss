@@ -1,0 +1,17 @@
+@import "theme/manifest.scss";
+
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+window {
+  background-color: transparent;
+}
+
+button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}

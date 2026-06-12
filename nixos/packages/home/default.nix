@@ -10,6 +10,7 @@
     fastfetch
     btop
     rofi
+    pulseaudio
   ];
   };
 }

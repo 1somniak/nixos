@@ -1,0 +1,29 @@
+(deflisten workspaces_data
+  :initial '{"active_index": 0, "workspaces": [{"id": 1, "state": "active"}]}'
+  "bash ~/.config/eww/bar/scripts/workspaces.sh")
+
+(defwidget widget_workspaces []
+  (box :class "ws-container"
+       :orientation "horizontal"
+       :space-evenly false
+       :valign "center"
+       (overlay
+         (box :orientation "horizontal"
+              :space-evenly false
+              (for ws in {workspaces_data.workspaces}
+                   (eventbox :cursor "pointer"
+                             :onclick "hyprctl dispatch workspace ${ws.id}"
+                             (button :class "ws ${ws.state}"
+                                     (label :class "ws-label"
+                                            :valign "center"
+                                            :halign "center"
+                                            :text "${ws.id}")))
+                   )
+              )
+         (box :halign "start"
+              :valign "center"
+              :style "margin-left: ${workspaces_data.active_index * 28 + 3}px; transition: margin-left 0.25s cubic-bezier(0.25, 1, 0.5, 1);"
+              (box :class "ws-indicator"))
+         )
+       )
+  )
