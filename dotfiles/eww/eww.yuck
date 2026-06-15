@@ -10,7 +10,6 @@
 (include "./panel/panel.yuck")
 
 
-;; --- BAR ---
 (defwindow window_bar
   :monitor 0
   :geometry (geometry :x "0px"
@@ -24,6 +23,8 @@
   :wm-ignore false
   :namespace "eww-bar"
   (widget_bar))
+
+
 
 ;; --- DASHBOARD ---
 (defwindow window_dashboard
