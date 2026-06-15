@@ -9,5 +9,6 @@
     ./dev.nix
     ./useless.nix
     ./games.nix
+    ./srs.nix
   ];
 }

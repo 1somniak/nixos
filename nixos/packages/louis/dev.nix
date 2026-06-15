@@ -23,6 +23,7 @@
     rocmPackages.llvm.clang-unwrapped
 
     typst
+    tinymist
     (python3.withPackages (ps: with ps; [
     #  numpy
     #  pandas
@@ -43,11 +44,6 @@
 
     docker
     postgresql
-
-    # crack
-    file
-    ghidra
-    wineWow64Packages.stable
 
     gitlab-runner
     gitlab-ci-local
