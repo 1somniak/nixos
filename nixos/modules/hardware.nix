@@ -22,11 +22,11 @@
     ];
   };
 
-  # Swapfile 24 Go
+  # Swapfile 8 Go
   swapDevices = [
     {
       device = "/swapfile";
-      size = 24576; # size in MB (24 GB)
+      size = 8192; # size in MB (8 GB)
     }
   ];
 
