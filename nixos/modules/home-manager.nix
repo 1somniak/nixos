@@ -65,5 +65,8 @@ in
       source = dotfiles + "/waybar/switch-audio-sink.sh";
       executable = true;
     };
+
+    # mario
+    xdg.configFile."mario".source = dotfiles + "/mario";
   };
 }
