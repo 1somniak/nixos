@@ -7,5 +7,5 @@
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
 
-  services.gnome.gnome-keyring.enable = false;
+  services.gnome.gnome-keyring.enable = true;
 }

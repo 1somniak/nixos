@@ -14,6 +14,13 @@
   console.keyMap = "fr";
 
   services.flatpak.enable = true;
+  services.flatpak.package = pkgs.flatpak.overrideAttrs (oldAttrs: rec {
+    version = "1.16.6";
+    src = pkgs.fetchurl {
+      url = "https://github.com/flatpak/flatpak/releases/download/${version}/flatpak-${version}.tar.xz";
+      hash = "sha256-HmPn8/5EtgLzTZKm/kb9ijvGvpRgwDwmgeV5dsZY7sM=";
+    };
+  });
 
   # Gestionnaire de connexion: greetd + tuigreet (login direct sans clic)
   services.greetd = {
@@ -25,6 +32,8 @@
       };
     };
   };
+
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # Activation de Hyprland
   programs.hyprland = {
