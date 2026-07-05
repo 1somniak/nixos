@@ -11,4 +11,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  services.tor = {
+    enable = true;
+    openFirewall = true;
+  };
 }

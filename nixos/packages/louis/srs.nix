@@ -11,5 +11,7 @@
     inetutils
     nmap
     wireguard-tools
+
+    freerdp
   ];
 }

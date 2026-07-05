@@ -7,6 +7,8 @@
     man-pages-posix
 
     brave
+    chromium
+    tor-browser
     unzip
     zip
     tree
@@ -24,5 +26,6 @@
     slurp
     (pkgs."wl-clipboard")
     swappy
+    transmission_4 # torrent download : "transmission-cli magnet:?..."
   ];
 }
