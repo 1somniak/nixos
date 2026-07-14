@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 let
   dotfiles = ../../dotfiles;
@@ -9,7 +9,9 @@ in
   home-manager.users.louis = { ... }:
   {
     home.stateVersion = "24.11";
-    programs.waybar.enable = true;
+
+    imports = [ inputs.dms.homeModules.dank-material-shell ];
+    programs.dank-material-shell.enable = true;
     programs.git.settings.user = {
       enable = true;
       name = "Louis Rodet";
@@ -22,20 +24,12 @@ in
     # hypr
     xdg.configFile."hypr/hyprland.conf".source = dotfiles + "/hypr/hyprland.conf";
     xdg.configFile."hypr/hyprlock.conf".source = dotfiles + "/hypr/hyprlock.conf";
-    xdg.configFile."hypr/hyprpaper.conf".source = dotfiles + "/hypr/hyprpaper.conf";
-    xdg.configFile."hypr/wallpapers".source = dotfiles + "/hypr/wallpapers";
     xdg.configFile."hypr/screenshot-edit.sh" = {
       source = dotfiles + "/hypr/screenshot-edit.sh";
       executable = true;
     };
 
-    # notifs
-    xdg.configFile."swaync/config.json".source = dotfiles + "/notifs/config.json";
-    xdg.configFile."swaync/style.css".source = dotfiles + "/notifs/style.css";
 
-    # Rofi
-    xdg.configFile."rofi/config.rasi".source = dotfiles + "/rofi/config.rasi";
-    xdg.configFile."rofi/themes/calm.rasi".source = dotfiles + "/rofi/calm.rasi";
 
     # Shell
     home.file.".zsh-powerline.sh".source = dotfiles + "/shell/.zsh-powerline.sh";
@@ -52,19 +46,7 @@ in
     xdg.configFile."fastfetch/config.jsonc".source = dotfiles + "/fastfetch/config.jsonc";
     xdg.configFile."fastfetch/logo.txt".source = dotfiles + "/fastfetch/logo.txt";
 
-    # Eww
-    xdg.configFile."eww" = {
-      source = dotfiles + "/eww";
-      recursive = true;
-    };
 
-    # Waybar
-    xdg.configFile."waybar/config".source = dotfiles + "/waybar/config";
-    xdg.configFile."waybar/style.css".source = dotfiles + "/waybar/style.css";
-    xdg.configFile."waybar/switch-audio-sink.sh" = {
-      source = dotfiles + "/waybar/switch-audio-sink.sh";
-      executable = true;
-    };
 
     # mario
     xdg.configFile."mario".source = dotfiles + "/mario";

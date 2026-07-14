@@ -16,5 +16,6 @@
     ./virtualisation.nix
     ./garbage-collection.nix
     ./home-manager.nix
+    ./fonts.nix
   ];
 }

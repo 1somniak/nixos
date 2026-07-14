@@ -7,6 +7,10 @@
       url = "github:hyprwm/Hyprland";
     };
 
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
+    };
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";

@@ -15,4 +15,8 @@
     enable = true;
     openFirewall = true;
   };
+
+  # DMS Dependencies
+  services.accounts-daemon.enable = true;
+  services.power-profiles-daemon.enable = true;
 }
