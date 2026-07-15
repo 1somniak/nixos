@@ -7,8 +7,8 @@
       url = "github:hyprwm/Hyprland";
     };
 
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
     };
 
     # Home Manager

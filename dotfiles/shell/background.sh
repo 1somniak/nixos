@@ -26,11 +26,14 @@ fi
 set_wallpaper() {
     local wallpaper="$1"
 
+    hyprctl hyprpaper preload "$wallpaper" >/dev/null 2>&1
+
     for _ in $(seq 1 25); do
         if hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1; then
+            hyprctl hyprpaper unload all >/dev/null 2>&1 || true
             return 0
         fi
-        sleep 0.2
+        sleep 1
     done
 
     return 1

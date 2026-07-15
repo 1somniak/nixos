@@ -19,4 +19,7 @@
   # DMS Dependencies
   services.accounts-daemon.enable = true;
   services.power-profiles-daemon.enable = true;
+  
+  # Caelestia Dependencies
+  services.upower.enable = true;
 }

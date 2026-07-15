@@ -1,0 +1,26 @@
+{
+    "appearance": {
+        "font": {
+            "scale": 0.9
+        },
+        "padding": {
+            "scale": 0.8
+        },
+        "rounding": {
+            "scale": 0
+        },
+        "spacing": {
+            "scale": 0.8
+        }
+    },
+    "bar": {
+        "status": {
+            "showNetwork": true,
+            "showWifi": true
+        }
+    },
+    "border": {
+        "rounding": 7,
+        "thickness": 1
+    }
+}
