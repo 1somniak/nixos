@@ -21,6 +21,8 @@ in
       email = "louis.rodet@epita.fr";
     };
 
+    home.file.".face".source = dotfiles + "/louis.png";
+
     # Caelestia
     xdg.configFile."caelestia/shell.json".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/caelestia/shell.json";
     xdg.configFile."caelestia/cli.json".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/caelestia/cli.json";
