@@ -42,6 +42,13 @@
     #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 
+  # Portails XDG pour l'intégration du thème avec GTK, navigateurs, Electron
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = [ "gtk" "hyprland" ];
+  };
+
   # logind - ne rien faire à la fermeture du capot (ne pas déco le wifi)
   services.logind.settings.Login.HandleLidSwitch = "ignore";
   services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";

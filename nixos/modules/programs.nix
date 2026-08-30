@@ -2,6 +2,7 @@
 
 {
   programs.firefox.enable = true;
+  programs.dconf.enable = true;
 
   programs.git = {
     enable = true;

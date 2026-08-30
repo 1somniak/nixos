@@ -6,9 +6,40 @@ in
 {
   home-manager.backupFileExtension = "backup";
 
-  home-manager.users.louis = { config, ... }:
+  home-manager.users.louis = { config, pkgs, ... }:
   {
     home.stateVersion = "24.11";
+
+    # Préférence globale de thème sombre (portails XDG, navigateurs web, apps Electron)
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        gtk-theme = "adw-gtk3-dark";
+      };
+    };
+
+    # Thème GTK en mode sombre (GTK3 & GTK4)
+    gtk = {
+      enable = true;
+      theme = {
+        name = "adw-gtk3-dark";
+        package = pkgs.adw-gtk3;
+      };
+      gtk4.theme = config.gtk.theme;
+      gtk3.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+      gtk4.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
+
+    # Thème Qt en mode sombre (Dolphin, etc.)
+    qt = {
+      enable = true;
+      platformTheme.name = "adwaita";
+      style.name = "adwaita-dark";
+    };
 
     imports = [ inputs.caelestia-shell.homeManagerModules.default ];
     programs.caelestia = {
