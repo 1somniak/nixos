@@ -11,7 +11,7 @@ wait_for_internet() {
 
 cp "$FLAKE/flake.lock" "$TMPDIR/flake.lock"
 wait_for_internet
-output=$(nix flake update --flake "$FLAKE" 2>&1)
+output=$(nix flake update nixpkgs home-manager --flake "$FLAKE" 2>&1)
 
 cp "$TMPDIR/flake.lock" "$FLAKE/flake.lock"
 rm -rf "$TMPDIR"
@@ -27,7 +27,7 @@ if [ "$count" -gt 0 ]; then
         if [ "$ACTION" = "update" ]; then
             notify-send "NixOS Update" "Starting system update..." -i system-software-update
             cd /etc/nixos
-            nix flake update
+            nix flake update nixpkgs home-manager
             output=$(sudo /run/current-system/sw/bin/systemd-run \
                 --property=CPUQuota=200% \
                 --property=MemoryMax=2G \
