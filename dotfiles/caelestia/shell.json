@@ -13,6 +13,9 @@
             "scale": 0.8
         }
     },
+    "background": {
+        "enabled": false
+    },
     "bar": {
         "status": {
             "showNetwork": true,
@@ -22,5 +25,15 @@
     "border": {
         "rounding": 7,
         "thickness": 1
+    },
+    "general": {
+        "apps": {
+            "explorer": [
+                "dolphin"
+            ],
+            "terminal": [
+                "kitty"
+            ]
+        }
     }
 }

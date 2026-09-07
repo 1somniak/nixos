@@ -7,7 +7,7 @@ set -euo pipefail
 wallpaper_dir="$HOME/.config/hypr/wallpapers"
 
 pick_random_wallpaper() {
-    find -L "$wallpaper_dir" -type f | shuf -n 1
+    find -L "$wallpaper_dir" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | shuf -n 1
 }
 
 # Hyprpaper may not be ready immediately when Hyprland starts.
@@ -23,14 +23,22 @@ if ! pgrep -x hyprpaper >/dev/null 2>&1; then
     exit 1
 fi
 
+# Caelestia peut être en train de démarrer en arrière-plan.
+# On attend qu'il soit initialisé pour s'assurer que l'ordre des calques Wayland soit respecté.
+if pgrep -f "caelestia-shell" >/dev/null 2>&1 || pgrep -x quickshell >/dev/null 2>&1; then
+    for _ in $(seq 1 50); do
+        if hyprctl layers 2>/dev/null | grep -q "caelestia"; then
+            break
+        fi
+        sleep 0.1
+    done
+fi
+
 set_wallpaper() {
     local wallpaper="$1"
 
-    hyprctl hyprpaper preload "$wallpaper" >/dev/null 2>&1
-
     for _ in $(seq 1 25); do
         if hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1; then
-            hyprctl hyprpaper unload all >/dev/null 2>&1 || true
             return 0
         fi
         sleep 1
