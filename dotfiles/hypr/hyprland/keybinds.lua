@@ -94,8 +94,8 @@ hl.bind(mainMod .. "+SHIFT+S",     hl.dsp.exec_cmd("/home/louis/.config/hypr/scr
 -----------------------------------------
 -- Mouse Dragging (Move & Resize)
 -----------------------------------------
-hl.bind(mainMod .. "+mouse:272", hl.dsp.window.drag(),   { drag = true })
-hl.bind(mainMod .. "+mouse:273", hl.dsp.window.resize(), { drag = true })
+hl.bind(mainMod .. "+mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. "+mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -----------------------------------------
 -- Multimedia Keys (Volume & Brightness)
